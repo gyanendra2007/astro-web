@@ -1,0 +1,46 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Numerology Calculator</h2>
+<form method="POST" action="/numerology" class="num_form">
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="birth_date">Birth Date (YYYY-MM-DD):</label>
+    <input type="date" id="birth_date" name="birth_date" required>
+    
+    <button type="submit" class="b">Calculate Numerology</button>
+</form>
+
+{% if prediction %}
+<div class="result">
+    <h1>Numerology Results for {{ name }}</h1>
+    <p><strong>Birth Date:</strong> {{ birth_date }}</p>
+    
+    <h2>Life Path Number: {{ life_path }}</h2>
+    <p>This number represents your life’s purpose and challenges. Each Life Path Number has unique characteristics that influence your personality.</p>
+    
+    <h2>Expression Number: {{ expression_number }}</h2>
+    <p>This number reveals your natural talents, abilities, and challenges. It’s derived from your full name.</p>
+    
+    <h2>Soul Urge Number: {{ soul_urge_number }}</h2>
+    <p>This number reflects your innermost desires and motivations, derived from the vowels in your name.</p>
+    
+    <h2>Personality Number: {{ personality_number }}</h2>
+    <p>This number shows how others perceive you, based on the consonants in your name.</p>
+    
+    <h2>Maturity Number: {{ maturity_number }}</h2>
+    <p>This number represents your full potential and the qualities you will develop as you age.</p>
+
+    <a href="/numerology">Calculate Again</a>
+</div>
+{% endif %}
+{% if flash_messages %}
+    <ul class="flashes">
+        {% for message in flash_messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Numerology Report for {{ name }}</h2>
+
+<p>Birth Date: {{ birth_date }}</p>
+
+<h3>Life Path Number: {{ life_path }}</h3>
+<p>{{ life_path_desc }}</p>
+
+<h3>Expression Number: {{ expression_number }}</h3>
+<p>{{ expression_desc }}</p>
+
+<h3>Soul Urge Number: {{ soul_urge_number }}</h3>
+<p>{{ soul_urge_desc }}</p>
+
+<h3>Personality Number: {{ personality_number }}</h3>
+<p>{{ personality_desc }}</p>
+
+<h3>Maturity Number: {{ maturity_number }}</h3>
+<p>{{ maturity_desc }}</p>
+
+<p><br><a href="/numerology">Go back</a></p>
+
+{% endblock %}

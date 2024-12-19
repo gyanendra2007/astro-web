@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Your Birth Chart</h2>
+<p>
+    Below is your personalized astrological birth chart, illustrating the positions of the planets in their respective houses and zodiac signs at the time of your birth.
+</p>
+
+<div class="chart-container">
+    <h3>Birth Chart</h3>
+    <img src="{{ url_for('static', filename='birth_chart.png') }}" alt="Astrological Birth Chart">
+</div>
+
+<p>
+    <strong>Note:</strong> This chart represents your astrological makeup, with detailed placements of the Sun, Moon, Venus, Mars, Jupiter, and Saturn. Each house and sign has specific meanings, influencing different aspects of your life.
+</p>
+
+<p>
+    For further insights into your astrological profile, explore:
+</p>
+<ul>
+    <li><a href="{{ url_for('horoscope') }}">Daily Horoscope</a></li>
+    <li><a href="{{ url_for('numerology') }}">Numerology Insights</a></li>
+    <li><a href="{{ url_for('compatibility') }}">Compatibility Check</a></li>
+</ul>
+
+{% endblock %}
+
+

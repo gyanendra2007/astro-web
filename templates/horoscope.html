@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Horoscope Generator</h2>
+<form method="POST" action="/horoscope" class="horo_form">
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="birth_date">Birth Date (YYYY-MM-DD):</label>
+    <input type="date" id="birth_date" name="birth_date" required>
+    
+    <label for="birth_time">Birth Time (HH:MM):</label>
+    <input type="time" id="birth_time" name="birth_time" required>
+    
+    <label for="location">Location (City):</label>
+    <input type="text" id="location" name="location" required>
+    
+    <button type="submit" class="b">Generate Horoscope</button>
+</form>
+
+<p>Want a quick insight? Check out your <a href="{{ url_for('daily_horoscope') }}">Daily Horoscope</a>!</p>
+
+{% if prediction %}
+<div class="result">
+    <h3>Your Horoscope:</h3>
+    <p>{{ prediction }}</p>
+    
+    <h3>Planetary Positions:</h3>
+    <ul>
+        <li>Sun: {{ planets_positions.get('sun', 'Data not available') }}°</li>
+        <li>Moon: {{ planets_positions.get('moon', 'Data not available') }}°</li>
+        <li>Venus: {{ planets_positions.get('venus', 'Data not available') }}°</li>
+        <li>Mars: {{ planets_positions.get('mars', 'Data not available') }}°</li>
+        <li>Jupiter: {{ planets_positions.get('jupiter', 'Data not available') }}°</li>
+        <li>Saturn: {{ planets_positions.get('saturn', 'Data not available') }}°</li>
+    </ul>
+</div>
+{% endif %}
+
+{% if house_placements %}
+    <div class="result">
+        <h3>House Placements:</h3>
+        <ul>
+            {% for house, degree in house_placements.items() %}
+                <li>{{ house }}: {{ degree }}°</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% elif house_placements.error %}
+    <div class="error">
+        <p>{{ house_placements.error }}</p>
+    </div>
+{% endif %}
+
+{% if flash_messages %}
+    <ul>
+        {% for message in flash_messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock %}

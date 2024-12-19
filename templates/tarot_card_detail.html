@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ card.name }}</h2>
+<div class="card-detail">
+    <img src="{{ card.image }}" alt="{{ card.name }}">
+    <p><strong>Description:</strong> {{ card.meaning }}</p>
+</div>
+{% endblock %}

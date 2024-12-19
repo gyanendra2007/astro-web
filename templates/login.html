@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Login - My Astrology Website{% endblock %}
+
+{% block content %}
+<div class="q">
+    <h2>Login</h2>
+    <form method="POST" class="a">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" name="username" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" name="password" required>
+        </div>
+        <div>
+            <button type="submit">Login</button>
+        </div>
+    </form>
+    <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+</div>    
+{% endblock %}

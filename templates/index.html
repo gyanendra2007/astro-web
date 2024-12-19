@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="video-container">
+    <video autoplay loop muted>
+        <source src="{{ url_for('static', filename='videos/astrology_background.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="overlay-content">
+        <h1>Welcome to the Astrology App</h1>
+  <ul>
+    <li><a href="/horoscope">Horoscope Generator</a></li>
+    <li><a href="/numerology">Numerology</a></li>
+    <li><a href="/tarot">Tarot Reading</a></li>
+    <li><a href="/compatibility">Compatibility Check</a></li>
+    <li><a href="/birth_chart">Birth Chart</a></li>
+    <li><a href="{{ url_for('daily_horoscope') }}">Daily Horoscope</a></li>
+  </ul>
+<p>Explore your horoscope, numerology, tarot readings, and compatibility here!</p>
+    </div>
+</div>
+<h2>Learn About Your Zodiac Sign</h2>
+<ul>
+    <li><strong>Aries:</strong> Bold and ambitious, Aries dives headfirst into even the most challenging situations.</li>
+    <li><strong>Taurus:</strong> Reliable and patient, Taurus is known for their practicality and determination.</li>
+    <li><strong>Gemini:</strong> Quick-witted and curious, Gemini loves to learn and share knowledge.</li>
+    <li><strong>Cancer:</strong> Sensitive and nurturing, Cancer is deeply intuitive and emotional.</li>
+    <li><strong>Leo:</strong> Confident and charismatic, Leo loves to be in the spotlight.</li>
+    <li><strong>Virgo:</strong> Analytical and meticulous, Virgo is known for their attention to detail.</li>
+    <li><strong>Libra:</strong> Diplomatic and fair-minded, Libra seeks harmony in relationships.</li>
+    <li><strong>Scorpio:</strong> Passionate and resourceful, Scorpio is known for their intensity and depth.</li>
+    <li><strong>Sagittarius:</strong> Adventurous and optimistic, Sagittarius loves to explore and seek new experiences.</li>
+    <li><strong>Capricorn:</strong> Disciplined and responsible, Capricorn is known for their ambition and practicality.</li>
+    <li><strong>Aquarius:</strong> Innovative and independent, Aquarius values freedom and originality.</li>
+    <li><strong>Pisces:</strong> Compassionate and artistic, Pisces is known for their empathy and creativity.</li>
+</ul>
+{% endblock %}

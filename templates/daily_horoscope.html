@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="daily-horoscope-container">
+    <h2>Personalized Daily Horoscope</h2>
+    <form method="POST" action="{{ url_for('daily_horoscope') }}" class="horoscope-form">
+        <label for="zodiac-sign">Select Your Zodiac Sign:</label>
+        <select id="zodiac-sign" name="zodiac_sign" required>
+            <option value="" disabled selected>-- Choose Your Sign --</option>
+            <option value="aries">Aries</option>
+            <option value="taurus">Taurus</option>
+            <option value="gemini">Gemini</option>
+            <option value="cancer">Cancer</option>
+            <option value="leo">Leo</option>
+            <option value="virgo">Virgo</option>
+            <option value="libra">Libra</option>
+            <option value="scorpio">Scorpio</option>
+            <option value="sagittarius">Sagittarius</option>
+            <option value="capricorn">Capricorn</option>
+            <option value="aquarius">Aquarius</option>
+            <option value="pisces">Pisces</option>
+        </select>
+        <button type="submit">Get Horoscope</button>
+    </form>
+
+    {% if horoscope %}
+    <div class="horoscope-result">
+        <h3>Your Horoscope for Today</h3>
+        <p>{{ horoscope }}</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
