@@ -1,9 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
-    <h1>Compatibility Results</h1>
-    <p><strong>{{ name1 }}</strong> and <strong>{{ name2 }}</strong></p>
-    <p><strong>Compatibility Score:</strong> {{ compatibility_score }}%</p>
-    <p>{{ description }}</p>
+    <h1>Compatibility Check</h1>
+    <form action="/compatibility" method="post">
+        <h3>Person 1 Details:</h3>
+        <label for="name1">Name:</label>
+        <input type="text" id="name1" name="name1" required>
+        <label for="dob1">Date of Birth:</label>
+        <input type="date" id="dob1" name="dob1" required>
+        <label for="time1">Time of Birth:</label>
+        <input type="time" id="time1" name="time1">
+        <label for="place1">Place of Birth:</label>
+        <input type="text" id="place1" name="place1">
+
+        <h3>Person 2 Details:</h3>
+        <label for="name2">Name:</label>
+        <input type="text" id="name2" name="name2" required>
+        <label for="dob2">Date of Birth:</label>
+        <input type="date" id="dob2" name="dob2" required>
+        <label for="time2">Time of Birth:</label>
+        <input type="time" id="time2" name="time2">
+        <label for="place2">Place of Birth:</label>
+        <input type="text" id="place2" name="place2">
+
+        <button type="submit">Check Compatibility</button>
+    </form>
 </div>
 {% endblock %}
