@@ -625,9 +625,30 @@ def numerology():
 
     # Render the form for user input on GET
     return render_template('numerology.html')
-
-@app.route('/compatibility')
+@app.route('/compatibility', methods=['GET', 'POST'])
 def compatibility():
+    if request.method == 'POST':
+        # Retrieve data from the form
+        name1 = request.form.get('name1')
+        dob1 = request.form.get('dob1')
+        time1 = request.form.get('time1')
+        place1 = request.form.get('place1')
+        name2 = request.form.get('name2')
+        dob2 = request.form.get('dob2')
+        time2 = request.form.get('time2')
+        place2 = request.form.get('place2')
+
+        # Dummy compatibility logic (to be replaced with astrological calculations)
+        compatibility_score = 85  # Example: compatibility as a percentage
+        description = "You both are highly compatible based on your zodiac signs!"
+
+        # Pass the data to the template
+        return render_template(
+            'compatibility_result.html',
+            name1=name1, name2=name2,
+            compatibility_score=compatibility_score,
+            description=description
+        )
     return render_template('compatibility.html')
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
