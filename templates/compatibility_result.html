@@ -1,1 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h1>Compatibility Results</h1>
+    <p><strong>{{ name1 }}</strong> and <strong>{{ name2 }}</strong></p>
+    <p><strong>Compatibility Score:</strong> {{ compatibility_score }}%</p>
+    <p>{{ description }}</p>
+</div>
+{% endblock %}
 
