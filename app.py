@@ -6,6 +6,9 @@ from geopy.geocoders import Nominatim
 import random
 from werkzeug.security import generate_password_hash, check_password_hash
 import ephem
+from flask_cors import CORS
+CORS(app)
+
 app = Flask(__name__)
 app.secret_key = '1234567890123456'  # Needed for flashing messages
 
