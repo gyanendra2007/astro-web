@@ -31,6 +31,9 @@ daily_horoscopes = {
     "aquarius": "Innovation and creativity will guide you today.",
     "pisces": "Trust your intuition and explore your artistic side."
 }
+@app.route('/')
+def home():
+    return "CORS is enabled!"
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.patches import Rectangle
